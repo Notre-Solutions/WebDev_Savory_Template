@@ -36,6 +36,8 @@ collections:
         name: "landingPage"
         fields:
           - {label: "Template Key", name: templateKey, widget: "hidden", default: "landing-page"}
+          - {label: "Title", name: title, widget: string, default: "Do something"}
+          
       - file: "src/content/product-template/index.md"
         label: "Product Page Template"
         name: "productPage"
