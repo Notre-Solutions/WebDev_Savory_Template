@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const about = ({ data }) => {
@@ -54,10 +54,10 @@ const about = ({ data }) => {
               anim id est laborum.
             </p>
 
-            <a href="contact.html" className="btn btn-primary" title="">
+            <Link to="/contact" className="btn btn-primary" title="">
               {" "}
               Get in touch
-            </a>
+            </Link>
           </div>
         </div>
       </main>
