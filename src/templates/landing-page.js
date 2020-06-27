@@ -2,16 +2,10 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-
+import MasonryComp from "../components/masonry"
+import ImgCard from "../components/imgCard"
 const Landing = ({ data }) => {
-  const {
-    img1,
-    img3,
-    img7,
-    img10,
-    img11,
-    img13,
-  } = data.markdownRemark.frontmatter.landingPage
+  const imgMap = data.markdownRemark.frontmatter.landingPage
   return (
     <Layout current="landing">
       <main className="" id="main-collapse">
@@ -21,128 +15,8 @@ const Landing = ({ data }) => {
           <div className="grid">
             <div className="gutter-sizer"></div>
             <div className="grid-sizer"></div>
-
-            <div className="grid-item">
-              <img
-                className="img-responsive"
-                alt=""
-                src={`../img/img-12.jpg`}
-              />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className="grid-item">
-              <Img
-                class="img-responsive"
-                alt=""
-                fluid={img1.childImageSharp.fluid}
-              />
-              {/* <img className="img-responsive" alt="" src="../img/img-05.jpg" /> */}
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className="grid-item">
-              <Img
-                class="img-responsive"
-                alt=""
-                fluid={img13.childImageSharp.fluid}
-              />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="grid-item">
-              <img className="img-responsive" alt="" src="../img/img-04.jpg" />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className="grid-item">
-              <Img
-                class="img-responsive"
-                alt=""
-                fluid={img7.childImageSharp.fluid}
-              />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className="grid-item">
-              <Img
-                class="img-responsive"
-                alt=""
-                fluid={img11.childImageSharp.fluid}
-              />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className="grid-item">
-              <Img
-                class="img-responsive"
-                alt=""
-                fluid={img10.childImageSharp.fluid}
-              />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="grid-item">
-              <Img
-                class="img-responsive"
-                alt=""
-                fluid={img3.childImageSharp.fluid}
-              />
-              <a href="./project" className="project-description">
-                <div className="project-text-holder">
-                  <div className="project-text-inner">
-                    <h3>Vivamus vestibulum</h3>
-                    <p>Discover more</p>
-                  </div>
-                </div>
-              </a>
+            <div className="masonry">
+              <MasonryComp imgs={Object.values(imgMap)} />
             </div>
           </div>
         </div>
@@ -187,6 +61,13 @@ export const pageQuery = graphql`
             }
           }
           img11 {
+            childImageSharp {
+              fluid(maxWidth: 10000, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          img12 {
             childImageSharp {
               fluid(maxWidth: 10000, quality: 100) {
                 ...GatsbyImageSharpFluid
