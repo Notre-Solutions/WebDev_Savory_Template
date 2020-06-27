@@ -1,0 +1,267 @@
+.nav {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 3rem;
+  width: calc(100% - 6rem);
+  opacity: 1;
+
+  li a,
+  .dropbtn {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    @include transition-ease;
+  }
+
+  .dropbtn:hover {
+    color: black;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    text-align: center;
+    display: none;
+    position: absolute;
+    background-color: rgba(46, 122, 117, 0.9);
+    min-width: 8rem;
+    // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    &-color-1 {
+      background-color: $APC-grey !important;
+    }
+    &-color-2 {
+      // background-color: $CAPS-dark !important;
+      background-color: #343536 !important;
+    }
+    &-color-3 {
+      background-color: $T2P-bg !important;
+    }
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    @include transition-ease;
+  }
+
+  .dropdown-content a:hover {
+    color: black;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  &-logo {
+    color: white;
+    position: absolute;
+    left: 2rem;
+    font-weight: 700;
+  }
+  .thin {
+    font-weight: 100 !important;
+    font-size: 1.6rem;
+  }
+
+  &-pricing {
+    color: rgba(46, 122, 117, 0.9) !important;
+    background-color: white;
+    padding: 0.6rem;
+    border-radius: 1rem;
+  }
+
+  &-pricing:hover {
+    cursor: pointer;
+    color: white !important;
+    background-color: rgba(46, 122, 117, 0.9);
+  }
+
+  .menu-nav-scrolling {
+    margin-top: 3rem;
+    border-radius: 0rem;
+  }
+
+  .menu-nav {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    background: rgba(46, 122, 117, 0.9);
+    padding: 1.5rem;
+    @include transition-ease;
+  }
+
+  .color-1 {
+    background: $APC-grey !important;
+  }
+  .color-3 {
+    background: $T2P-bg !important;
+  }
+  .color-2 {
+    // background: $CAPS-dark !important;
+    background-color: #343536 !important;
+  }
+
+  .menu-nav__item {
+    display: inline;
+    padding-right: 1.5rem;
+    text-decoration: none;
+
+    &.active > a {
+      color: black;
+    }
+  }
+
+  .menu-nav__link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    @include transition-ease;
+    &:hover {
+      color: black;
+    }
+  }
+
+  &.open {
+    visibility: visible;
+  }
+}
+
+.burger-navigation {
+  visibility: hidden;
+
+  .color-1 {
+    background-color: $APC-dark !important;
+    opacity: 0.7;
+  }
+  .color-2 {
+    background-color: $CAPS-dark !important;
+    opacity: 0.7;
+  }
+  .color-3 {
+    background-color: $T2P-bg !important;
+    opacity: 0.7;
+  }
+  &__button {
+    background-color: white;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 4rem;
+    right: 4rem;
+    border-radius: 50%;
+    z-index: 2000;
+    text-align: center;
+    @include transition-ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .open-background {
+    transform: scale(80);
+  }
+
+  &__background {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 4.5rem;
+    right: 4.5rem;
+
+    z-index: 1500;
+    background-color: $inship-color-background;
+
+    @include transition-ease;
+  }
+
+  &__nav {
+    ul li {
+      display: none;
+    }
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+    @include transition-ease;
+
+    opacity: 0;
+    width: 0%;
+  }
+
+  .open-nav {
+    ul li {
+      display: list-item;
+    }
+    opacity: 1;
+    width: 100%;
+  }
+
+  .open-button {
+    background-color: transparent;
+
+    &::after {
+      transform: rotate(45deg);
+      width: 2rem;
+      top: 0;
+    }
+    &::before {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+
+  &__link {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+
+  &__icon {
+    margin-top: 2.5rem;
+    position: relative;
+    &,
+    &::before,
+    &::after {
+      width: 2rem;
+      height: 0.2rem;
+      background-color: gray;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+    }
+
+    &::before {
+      top: -1rem;
+    }
+    &::after {
+      top: 1rem;
+      width: 1.5rem;
+    }
+  }
+}
