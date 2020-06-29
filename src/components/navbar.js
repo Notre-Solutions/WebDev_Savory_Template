@@ -33,7 +33,7 @@ const navbar = () => {
           </div>
           <ul className="nav">
             <li>
-              <a href="./index" title="">
+              <a href="./" title="">
                 Home
               </a>
             </li>
