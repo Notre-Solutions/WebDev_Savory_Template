@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 const services = ({ data }) => {
   const { img12, img13, img14 } = data.markdownRemark.frontmatter.servicesPage
@@ -29,10 +29,10 @@ const services = ({ data }) => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
               ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <a href="./contact.html" className="btn btn-primary" title="">
+            <Link to="/contact" className="btn btn-primary" title="">
               {" "}
               Get in touch
-            </a>
+            </Link>
           </div>
 
           <div className="col-xs-12 col-md-4 section-container-spacer">
@@ -46,10 +46,10 @@ const services = ({ data }) => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
               ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <a href="./contact.html" className="btn btn-primary" title="">
+            <Link to="/contact" className="btn btn-primary" title="">
               {" "}
               Get in touch
-            </a>
+            </Link>
           </div>
 
           <div className="col-xs-12 col-md-4 section-container-spacer">
@@ -63,10 +63,10 @@ const services = ({ data }) => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
               ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <a href="./contact.html" className="btn btn-primary" title="">
+            <Link to="/contact" className="btn btn-primary" title="">
               {" "}
               Get in touch
-            </a>
+            </Link>
           </div>
         </div>
       </main>

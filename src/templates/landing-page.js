@@ -1,16 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import MasonryComp from "../components/masonry"
-import ImgCard from "../components/imgCard"
+
 const Landing = ({ data }) => {
   const imgMap = data.markdownRemark.frontmatter.landingPage
   return (
     <Layout current="landing">
       <main className="" id="main-collapse">
-        {/* <!-- Add your site or app content here --> */}
-
         <div className="hero-full-wrapper">
           <div className="grid">
             <div className="gutter-sizer"></div>
