@@ -1,18 +1,19 @@
 import React from "react"
 import Layout from "../components/layout"
-const contact = () => {
+import {graphql} from "gatsby"
+
+const contact = ({data}) => {
+  const {title, description, contactForm} = data.markdownRemark.frontmatter.contactPage
+
   return (
     <Layout current="contact">
       <main className="" id="main-collapse">
         <div className="row">
           <div className="col-xs-12">
             <div className="section-container-spacer">
-              <h1>Contact</h1>
+              <h1>{title}</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. t
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                {description}
               </p>
             </div>
             <div className="section-container-spacer">
@@ -52,13 +53,13 @@ const contact = () => {
                         <span className="fa-icon">
                           <i className="fa fa-phone" aria-hidden="true"></i>
                         </span>
-                        + 33 9 07 45 12 65
+                        {contactForm.telephone}
                       </li>
                       <li>
                         <span className="fa-icon">
                           <i className="fa fa-at" aria-hidden="true"></i>
                         </span>
-                        e-mail@mail.io
+                        {contactForm.email}
                       </li>
                       <li>
                         <span className="fa-icon">
@@ -67,22 +68,22 @@ const contact = () => {
                             aria-hidden="true"
                           ></i>
                         </span>
-                        42 rue Moulbert 75016 Paris
+                        {contactForm.address}
                       </li>
                     </ul>
                     <h3>Follow me on social networks</h3>
                     <a
-                      href="https://www.linkedin.com/"
+                      href={contactForm.links.linkedin}
                       title=""
                       className="fa-icon"
                     >
                       <i className="fa fa-linkedin"></i>
                     </a>
-                    <a href="https://twitter.com/" title="" className="fa-icon">
+                    <a href={contactForm.links.twitter} title="" className="fa-icon">
                       <i className="fa fa-twitter"></i>
                     </a>
                     <a
-                      href="https://dribbble.com/"
+                      href={contactForm.links.dribbble}
                       title=""
                       className="fa-icon"
                     >
@@ -100,3 +101,26 @@ const contact = () => {
 }
 
 export default contact
+
+export const pageQuery = graphql`
+  query ContactPageQuery($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      frontmatter {
+        contactPage {
+          contactForm {
+            telephone
+            email
+            address
+            subtitle
+            links{
+              facebook
+              twitter
+              dribbble
+            }
+          }
+          title
+        }
+      }
+    }
+  }
+`

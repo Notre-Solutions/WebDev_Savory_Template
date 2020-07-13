@@ -24,13 +24,14 @@ class MY extends Component {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {this.props.imgs.map(img => {
+        {this.props.imgs.map(item => {
+          console.log(item)
           return (
             <ImgCard
-              img={img}
-              title="Vivamus vestibulum"
-              description="My Description"
-              pageName="project"
+              img={item.img}
+              title={item.title}
+              description={item.description}
+              pageName={item.to}
             ></ImgCard>
           )
         })}

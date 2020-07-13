@@ -4,7 +4,8 @@ import { graphql } from "gatsby"
 import MasonryComp from "../components/masonry"
 
 const Landing = ({ data }) => {
-  const imgMap = data.markdownRemark.frontmatter.landingPage
+  const cards = data.markdownRemark.frontmatter.landingPage.cards
+  
   return (
     <Layout current="landing">
       <main className="" id="main-collapse">
@@ -13,7 +14,7 @@ const Landing = ({ data }) => {
             <div className="gutter-sizer"></div>
             <div className="grid-sizer"></div>
             <div className="masonry">
-              <MasonryComp imgs={Object.values(imgMap)} />
+              <MasonryComp imgs={Object.values(cards)} />
             </div>
           </div>
         </div>
@@ -29,52 +30,15 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         landingPage {
-          img1 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img3 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img7 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img10 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img11 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img12 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img13 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+          cards{
+            title
+            description
+            to
+            img{
+              childImageSharp {
+                fluid(maxWidth: 10000, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }

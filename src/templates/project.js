@@ -4,64 +4,58 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 
 export default function project({ data }) {
-  const { img12, img13, img14 } = data.markdownRemark.frontmatter.projectPage
+  const {
+    title,
+    description,
+    footer,
+    images,
+  } = data.markdownRemark.frontmatter.projectPage
 
   return (
     <div>
-      <Layout>
-        <main class="" id="main-collapse">
-          <div class="row">
-            <div class="col-xs-12 col-md-8">
-              <div class="section-container-spacer">
-                <h1>Project</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+      <Layout current="project">
+        <main className="" id="main-collapse">
+          <div className="row">
+            <div className="col-xs-12 col-md-8">
+              <div className="section-container-spacer">
+                <h1>{title}</h1>
+                <p>{description}</p>
               </div>
 
-              <div class="section-container-spacer">
+              <div className="section-container-spacer">
                 <p>
                   {" "}
                   <Img
                     className="img-responsive"
                     alt=""
-                    fluid={img12.childImageSharp.fluid}
+                    fluid={images[0].img.childImageSharp.fluid}
                   />
                 </p>
-                <div class="row">
-                  <div class="col-xs-12 col-md-6">
+                <div className="row">
+                  <div className="col-xs-12 col-md-6">
                     <p>
                       {" "}
                       <Img
                         className="img-responsive"
                         alt=""
-                        fluid={img13.childImageSharp.fluid}
+                        fluid={images[1].img.childImageSharp.fluid}
                       />
                     </p>
                   </div>
-                  <div class="col-xs-12 col-md-6">
+                  <div className="col-xs-12 col-md-6">
                     <p>
                       {" "}
                       <Img
                         className="img-responsive"
                         alt=""
-                        fluid={img14.childImageSharp.fluid}
+                        fluid={images[2].img.childImageSharp.fluid}
                       />
                     </p>
                   </div>
                 </div>
               </div>
 
-              <p>
-                {" "}
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </p>
+              <p> {footer}</p>
             </div>
           </div>
         </main>
@@ -75,24 +69,15 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         projectPage {
-          img12 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img13 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          img14 {
-            childImageSharp {
-              fluid(maxWidth: 10000, quality: 100) {
-                ...GatsbyImageSharpFluid
+          title
+          description
+          footer
+          images {
+            img {
+              childImageSharp {
+                fluid(maxWidth: 10000, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
