@@ -26,8 +26,8 @@ collections:
               default: "landing-page",
             }
           - {
-              label: "About Page",
-              name: aboutPage,
+              label: "Landing Page",
+              name: landingPage,
               widget: object,
               fields:
                 [
@@ -258,7 +258,7 @@ collections:
                         { label: "Body", name: body, widget: string },
                         {
                           label: "Image",
-                          name: "img",
+                          name: "image",
                           widget: image,
                           required: true,
                         },
