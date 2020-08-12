@@ -5,7 +5,7 @@ import MasonryComp from "../components/masonry"
 
 const Landing = ({ data }) => {
   const cards = data.markdownRemark.frontmatter.landingPage.cards
-  
+
   return (
     <Layout current="landing">
       <main className="" id="main-collapse">
@@ -30,14 +30,14 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         landingPage {
-          cards{
+          cards {
             title
             description
             to
-            img{
+            img {
               childImageSharp {
                 fluid(maxWidth: 10000, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }
